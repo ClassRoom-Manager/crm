@@ -8,7 +8,7 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     * ssda
+     * 
      */
     public function up(): void
     {
