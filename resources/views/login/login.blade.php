@@ -9,12 +9,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Inciar sesion</title>
+    <title>Iniciar sesión</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
@@ -45,32 +44,30 @@
                                         <div class="text-center">
                                             <h1 class="h4 text-gray-900 mb-4">Bienvenido a Class Rom Manager</h1>
                                         </div>
-                                        <form class="user">
+                                        <form class="user" method="POST" action="{{ route('login.authenticate') }}">
+                                            @csrf
                                             <div class="form-group">
                                                 <input type="email" class="form-control form-control-user"
-                                                    id="inputEmail" aria-describedby="emailHelp"
+                                                    name="email" id="inputEmail" aria-describedby="emailHelp"
                                                     placeholder="Correo electrónico">
                                             </div>
                                             <div class="form-group">
                                                 <input type="password" class="form-control form-control-user"
-                                                    id="inputPassword" placeholder="Contraseña">
+                                                    name="password" id="inputPassword" placeholder="Contraseña">
                                             </div>
                                             <div class="form-group">
                                                 <div class="custom-control custom-checkbox small">
                                                     <input type="checkbox" class="custom-control-input"
-                                                        id="customCheck">
+                                                      name="remember"  id="customCheck">
                                                     <label class="custom-control-label" for="customCheck">Recordar
                                                         usuario</label>
                                                 </div>
                                             </div>
-                                            <a href="{{ route('login.login') }}" class="btn btn-primary btn-user btn-block">
-                                                Entrar
-                                            </a>
+                                            <button type="submit"
+                                                class="btn btn-primary btn-user btn-block">Entrar</button>
                                             <hr>
-                                            <a href="index.html" class="btn btn-google btn-user btn-block">
-                                                <i class="fab fa-google fa-fw"></i> Entrar con cuenta Google
-                                            </a>
                                         </form>
+
                                         <hr>
                                         <div class="text-center">
                                             <a class="small" href="forgot-password.html">Olvidó su contraseña?</a>
@@ -96,6 +93,17 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Additional script -->
+    <script>
+        function showAlert(message) {
+            alert(message);
+        }
+
+        @if (session('alert'))
+        showAlert('{{ session('alert') }}');
+        @endif
+    </script>
 
 </body>
 
