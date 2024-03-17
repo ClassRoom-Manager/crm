@@ -20,7 +20,9 @@ class DatabaseSeeder extends Seeder
             'phone' => '1234567891',
             'email' => 'email@email.com',
             'password' => 'email',
+            'user_type' => 'secretaria',
 
         ]);
+
     }
 }
