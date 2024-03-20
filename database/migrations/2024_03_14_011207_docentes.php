@@ -16,13 +16,14 @@ return new class extends Migration
         $table->unsignedBigInteger('identificacion_docente');
         $table->text('profesion');
         $table->text('nivel_de_estudios');
-        $table->unsignedBigInteger('facultad');
+        $table->unsignedBigInteger('programa');
         $table->unsignedBigInteger('contrato');
         $table->timestamps();
         
         $table->foreign('identificacion_docente')->references('id')->on('users');
-        $table->foreign('facultad')->references('id')->on('facultades');
+        $table->foreign('programa')->references('id')->on('programas');
         $table->foreign('contrato')->references('id')->on('contratos');
+
     });
 }
 

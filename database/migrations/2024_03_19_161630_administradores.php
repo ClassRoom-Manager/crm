@@ -6,15 +6,12 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
-        Schema::create('secretarias', function (Blueprint $table) {
+        Schema::create('administradores', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('identificacion_secretaria');
-            $table->foreign('identificacion_secretaria')->references('id')->on('users');
+            $table->unsignedBigInteger('identificacion_administradores');
+            $table->foreign('identificacion_administradores')->references('id')->on('users');
             $table->timestamps();
         });
     }
@@ -24,6 +21,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('secretarias');
+        Schema::dropIfExists('administradores');
     }
 };

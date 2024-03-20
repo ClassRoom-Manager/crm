@@ -17,7 +17,6 @@ return new class extends Migration
             //Tipo de contrato
             $table->id();
             $table->string('grupo');
-            $table->text('descripcion');
             $table->timestamps(); //Importante tener el timestamps para almacenar la fecha del cambio
 
             //Crear una llave foranea 

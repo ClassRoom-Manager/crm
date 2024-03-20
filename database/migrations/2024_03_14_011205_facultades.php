@@ -17,7 +17,7 @@ return new class extends Migration
             //Tipo de contrato
             $table->id();
             $table->string('codigo_facultad');
-            $table->date('nombre_facultad');
+            $table->string('nombre_facultad');
             $table->unsignedBigInteger('decano_facultad');
             $table->timestamps();
             

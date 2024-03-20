@@ -18,6 +18,7 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 
@@ -67,10 +68,9 @@
                                                 class="btn btn-primary btn-user btn-block">Entrar</button>
                                             <hr>
                                         </form>
-
                                         <hr>
                                         <div class="text-center">
-                                            <a class="small" href="forgot-password.html">Olvidó su contraseña?</a>
+                                            <a class="small" href="{{ route('login.olvidocontrasenia') }}">Olvidó su contraseña?</a>
                                         </div>
                                     </div>
                                 </div>
@@ -94,16 +94,37 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Additional script -->
-    <script>
-        function showAlert(message) {
-            alert(message);
-        }
+   <!-- Additional script -->
+
+   <script>
+        function showAlert(title, message, type = 'info') {
+            Swal.fire({
+                title: title,
+                text: message,
+                icon: type,
+                confirmButtonText: 'OK'
+            });
+    }
 
         @if (session('alert'))
-        showAlert('{{ session('alert') }}');
+            showAlert('Alerta', '{{ session('alert') }}', 'info');
         @endif
+
+        @if (session('incorrect_values'))
+            showAlert('Valores Incorrectos', '{{ session('incorrect_values') }}', 'error');
+        @endif
+
+        @if (session('wrong_password'))
+            console.log('Se detectó la sesión de contraseña incorrecta');
+            showAlert('Error de Autenticación', 'La contraseña ingresada es incorrecta.', 'error');
+        @endif
+
+        @if (session('invalid_email'))
+            showAlert('Correo Electrónico Inválido', '{{ session('invalid_email') }}', 'error');
+        @endif
+// Agregar más alertas según sea necesario para otros casos
     </script>
+
 
 </body>
 

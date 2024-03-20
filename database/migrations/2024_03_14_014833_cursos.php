@@ -18,13 +18,15 @@ return new class extends Migration
             $table->id();
             $table->string('codigo_curso');
             $table->string('nombre_curso');
-            $table->string('modalidad');
+            $table->string('clasificacion');
+            $table->string('tipologia');
+            $table->string('semestre');
+            $table->integer('ihs');
             $table->integer('creditos');
-            $table->string('modulo');
             $table->integer('creditos_por_semestre');
             $table->integer('creditos_totales');
-            $table->string('tipologia');
-            $table->integer('cursos_por_semestre');
+            $table->text('referencias')->nullable();
+            $table->text('referencias_nombres')->nullable();
             $table->timestamps(); //Importante tener el timestamps para almacenar la fecha del cambio
 
             //Crear una llave foranea 

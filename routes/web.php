@@ -22,7 +22,7 @@ use App\Http\Controllers\Auth\PasswordResetLinkController;
 */
 
 Route::get('/', function () {
-    return view('login.login');
+    return view('login.olvidocontrasenia');
 });
 
 // Rutas Login

@@ -14,14 +14,14 @@ return new class extends Migration
         Schema::create('salones', function (Blueprint $table) {
             $table->id();
             $table->string('numero_de_salon');
-            $table->string('capacidad');
+            $table->integer('capacidad');
             $table->text('equipamiento');
             $table->string('ubicacion_sede');
             $table->integer('disponibilidad_nocturna');
             $table->integer('disponibilidad_diurna');
             $table->string('estado',2);
             $table->text('prioridad');
-            $table->timestamps();
+            $table->timestamps(); 
         });
     }
 
