@@ -31,6 +31,7 @@ Route::post('/login', [LoginController::class, 'authenticate'])->name('login.aut
 Route::get('/passwordres', [LoginController::class, 'olvidocontrasenia'])->name('login.olvidocontrasenia');
 Route::post('/passwordres', [LoginController::class, 'forgotPassword'])->name('password.email');
 
+
 // Ruta welcome
 Route::get('/welcome', [WelcomeController::class, 'welcome'])->name('welcome');
 
